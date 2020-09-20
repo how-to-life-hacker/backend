@@ -3,7 +3,7 @@ const express = require('express');
 
 //ROUTERS
 
-
+const authRouter = require('../auth/auth-router')
 
 const server = express();
 
@@ -15,7 +15,7 @@ server.get('/', (req, res) => {
   res.status(200).json({ message: 'API up and running'})
 });
 
-
+server.use('/api/auth', authRouter);
 
 
 function logger(req, res, next) {
