@@ -64,3 +64,4 @@ typings/
 # Mac files
 .DS_Storenoe_modules
 node_modules
+npm-debug.log
