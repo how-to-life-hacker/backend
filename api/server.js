@@ -4,7 +4,7 @@ const express = require('express');
 //ROUTERS
 
 const authRouter = require('../auth/auth-router')
-
+const howToRouter = require('../howtos/howto-router')
 const server = express();
 
 server.use(express.json())
@@ -16,6 +16,7 @@ server.get('/', (req, res) => {
 });
 
 server.use('/api/auth', authRouter);
+server.use('/api/howto', howToRouter)
 
 
 function logger(req, res, next) {
