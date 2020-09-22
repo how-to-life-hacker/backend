@@ -53,4 +53,14 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+router.get('/:id/steps', (req, res) => {
+    HowToRouter.getHowToSteps(req.params.id)
+    .then(steps => {
+        res.status(200).json({ data: steps })
+    })
+    .catch(err => {
+        console.log(err).json({message: 'error occured'})
+    })
+})
+
 module.exports = router;
