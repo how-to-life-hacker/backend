@@ -14,23 +14,23 @@ module.exports = {
       return query
         .where('id', id)
         .first()
-        .then((action) => {
-          if (action) {
-            return mappers.actionToBody(action);
+        .then((step) => {
+          if (step) {
+            return step
           } else {
             return null;
           }
         });
     } else {
-      return query.then((actions) => {
-        return actions.map((action) => mappers.actionToBody(action));
+      return query.then((steps) => {
+        return steps
       });
     }
   }
   
-  function insert(action) {
+  function insert(step) {
     return db('steps')
-      .insert(action, 'id')
+      .insert(step, 'id')
       .then(([id]) => get(id));
   }
   

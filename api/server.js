@@ -2,9 +2,10 @@ const { json } = require('express');
 const express = require('express');
 
 //ROUTERS
-
+const authenticate = require('../auth/authentication-middleware')
 const authRouter = require('../auth/auth-router')
 const howToRouter = require('../howtos/howto-router')
+const stepsRouter = require('../steps/steps-router')
 const server = express();
 
 server.use(express.json())
@@ -16,7 +17,8 @@ server.get('/', (req, res) => {
 });
 
 server.use('/api/auth', authRouter);
-server.use('/api/howto', howToRouter)
+server.use('/api/howto', authenticate, howToRouter)
+server.use('/api/steps', authenticate, stepsRouter)
 
 
 function logger(req, res, next) {
