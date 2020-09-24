@@ -54,18 +54,7 @@ router.delete('/:id', (req, res) => {
 })
 
  
-router.get('/:id/actions', (req, res) => {
-    ProjectDb.getProjectActions(req.params.id)
-    .then(actions => {
-        res.status(200).json(actions)
-    })
-    .catch(err => {
-        console.log(err)
-        res.status(500).json({
-            message: 'error finding actions for project'
-        })
-    })
-})
+
 
 
 
