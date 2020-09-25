@@ -43,9 +43,9 @@ router.delete('/:id', (req, res) => {
     HowToRouter.remove(req.params.id)
     .then(count => {
         if (count) {
-            res.status(200).json({message: 'project deleted'})
+            res.status(200).json({message: 'how to deleted'})
           } else {
-            res.status(404).json({ message: "project not found" });
+            res.status(404).json({ message: "how to not found" });
           }
     })
     .catch(err => {

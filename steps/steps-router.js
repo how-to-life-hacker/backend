@@ -43,7 +43,7 @@ router.delete('/:id', (req, res) => {
     StepsDb.remove(req.params.id)
     .then(count => {
         if (count) {
-            res.status(200).json({message: 'step deleted'})
+            res.status(204).json({message: 'step deleted'})
           } else {
             res.status(404).json({ message: "step not found" });
           }
