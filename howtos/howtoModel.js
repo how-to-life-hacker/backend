@@ -1,5 +1,5 @@
 const db = require('../data/db-config')
-
+const knex = require("knex");
 module.exports = {
     add,
     get,
